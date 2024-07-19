@@ -5,18 +5,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome to the homepage</title>
     <link rel="stylesheet" href="styles.css">
+
+<style>
+    * {
+        list-style: none;
+    }
+
+    body {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    .top-content {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .pages {
+        font-size: 18px;
+        text-decoration: none;
+        color: black;
+        padding: 0 35px;
+    }
+</style>
+
 </head>
 <body>
     <h1>Cook Corner</h1>
-    <h2>Welcome to my homepage</h2>
-    <h3>Blog Posts</h3>
-    <h3>Project Portfolio</h3>
-    <h3>Resume</h3>
-    <h3></h3>
-    <p id="demo">Click the button to see the magic!</p>
-    <button onclick="showMessage()">Click Me</button>
+    <h2>Welcome to my HOMEPAGE</h2>
 
-    <script src="script.js"></script>
+    <ul class="top-content">
+        <li><a href="/Blogpage.html" class="pages">Blog</a></li>
+        <li><a href="/portfolio.html" class="pages">Portfolio</a></li>
+        <li><a href="/resume.html" class="pages">Resume</a></li>
+        <li><a href="/contact.html" class="pages">Contact</a></li>
+    </ul>
 </body>
 </html>
 
