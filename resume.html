@@ -14,17 +14,30 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+        box-sizing: border-box;
+        overflow: hidden;
     }
     header {
-            width: 100%;
-            text-align: left;
-            background-color: #f0f0f0;
-            padding: 10px 20px;
-            box-sizing: border-box;
-        }
-    iframe {
+        width: 100%;
+        text-align: left;
+        padding: 10px 20px;
+        box-sizing: border-box;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1000;
+    }
+    .content {
         width: 100%;
         height: 100%;
+        margin-top: 70px; /* Adjust this value if needed to prevent content overlap */
+        overflow-y: auto;
+        padding: 10px 20px;
+        box-sizing: border-box;
+    }
+    iframe {
+        width: 100%;
+        height: calc(100% - 40px); /* Adjust this value if needed to fit your design */
         border: none;
     }
 </style>
@@ -32,8 +45,10 @@
 <body>
 <header>
     <h1>Jack's World</h1>
-    <h2>My Resume</h2>
 </header>
-<iframe src="Quentin Cook Resume.pdf"></iframe>
+<div class="content">
+    <iframe src="Quentin Cook Resume.pdf"></iframe>
+</div>
+<h5><a href="./index.html" class="pages">Back to Homepage</a></h5>
 </body>
 </html>
