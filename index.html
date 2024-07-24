@@ -7,68 +7,96 @@
     <link rel="stylesheet" href="styles.css">
     <title>Jack's World</title>
     <style>
-        body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 20px;
-}
+    body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .header {
+            text-align: left;
+            margin-bottom: 20px;
+        }
+        
+        h1, h2 {
+            margin: 0 0 10px 0;
+        }
+        
+        .nav-links {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .nav-links li {
+            margin-bottom: 10px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: black;
+        }
+        
+        .content-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: auto auto;
+            gap: 20px;
+        }
+        
+        .box {
+            border: 1px solid black;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .box-header {
+            background-color: #f0f0f0;
+            padding: 5px;
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px solid black;
+        }
+        
+        .box-content {
+            padding: 10px;
+            flex-grow: 1;
+            overflow: auto;
+        }
+        
+        .close-button {
+            cursor: pointer;
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+            object-fit: contain;
+        }
+        
+        #what_im_working_on {
+            grid-column: 1 / 3;
+            grid-row: 1 / 2;
+        }
+        
+        #readme {
+            grid-column: 3 / 4;
+            grid-row: 1 / 2;
+        }
+        
+        #side_quests {
+            grid-column: 1 / 4;
+            grid-row: 2 / 3;
+        }
+        
+        .horizontal-boxes {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            grid-column: 1 / 4;
+        }
 
-h1, h2 {
-    margin: 0 0 10px 0;
-}
-
-.nav-links {
-    list-style: none;
-    padding: 0;
-    margin-bottom: 20px;
-}
-
-.nav-links li {
-    display: grid;
-    margin-right: 15px;
-}
-
-.nav-links a {
-    text-decoration: none;
-    color: black;
-}
-
-.content-container {
-    display: grid;
-}
-
-.box {
-    border: 1px solid black;
-    width: calc(50% - 10px); /* Adjust based on your preference */
-    margin-bottom: 20px;
-}
-
-.box-header {
-    background-color: #f0f0f0;
-    padding: 5px;
-    display: flex;
-    justify-content: space-between;
-    border-bottom: 1px solid black;
-}
-
-.box-content {
-    padding: 10px;
-}
-
-.close-button {
-    cursor: pointer;
-}
-
-img {
-    max-width: 100%;
-    height: auto;
-}
-
-@media (max-width: 768px) {
-    .box {
-        width: 100%;
-    }
-}
     </style>
 </head>
 <body>
@@ -105,7 +133,7 @@ img {
                 <span class="close-button">×</span>
             </div>
             <div class="box-content">
-                <img src="/peak_a_week2.jpeg" alt="peak_a_week.jpeg">
+                <img src="/IMG_2366.JPG" alt="peak_a_week.jpeg">
             </div>
         </div>
         <div class="box">
@@ -145,3 +173,4 @@ img {
 </script>
 </html>
 
+ 
