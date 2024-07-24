@@ -5,49 +5,143 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome to the homepage</title>
     <link rel="stylesheet" href="styles.css">
+    <title>Jack's World</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+}
 
-<style>
-    * {
-        list-style: none;
+h1, h2 {
+    margin: 0 0 10px 0;
+}
+
+.nav-links {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 20px;
+}
+
+.nav-links li {
+    display: grid;
+    margin-right: 15px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: black;
+}
+
+.content-container {
+    display: grid;
+}
+
+.box {
+    border: 1px solid black;
+    width: calc(50% - 10px); /* Adjust based on your preference */
+    margin-bottom: 20px;
+}
+
+.box-header {
+    background-color: #f0f0f0;
+    padding: 5px;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid black;
+}
+
+.box-content {
+    padding: 10px;
+}
+
+.close-button {
+    cursor: pointer;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+@media (max-width: 768px) {
+    .box {
+        width: 100%;
     }
-
-    /* body {
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
-    } */
-
-    /* .top-content {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-    } */
-
-    .pages {
-        font-size: 18px;
-        text-decoration: none;
-        color: black;
-        padding: 0 35px;
-    }
-    .div {
-        padding-top: 30px;
-    }
-</style>
-
+}
+    </style>
 </head>
 <body>
-    <h1>Jack's World</h1>
-    <h3>Welcome to my HOMEPAGE</h3>
-
-    <ul class="top-content">
-        <li><a href="/Blogpage.html" class="pages">Blog</a></li>
-        <li><a href="/portfolio.html" class="pages">Portfolio</a></li>
-        <li><a href="/resume.html" class="pages">Resume</a></li>
-        <li><a href="/contact.html" class="pages">Contact</a></li>
-        <div>What I'm working on</div>
+    <h1>Quentin.J.Cook</h1>
+    <h3>To Each Their Own</h3>
+    <ul class="nav-links">
+        <li><a href="/Blogpage.html">Blog</a></li>
+        <li><a href="/portfolio.html">Portfolio</a></li>
+        <li><a href="/resume.html">Resume</a></li>
+        <li><a href="/contact.html">Contact</a></li>
     </ul>
+    <div class="content-container">
+        <div class="box" id="close">
+            <div class="box-header">
+                <span>what_im_working_on.jpg</span>
+                <span class="close-button" onclick="closeDiv()">×</span>
+            </div>
+            <div class="box-content">
+                <img src="/Baseball_heatmap.jpeg" alt="Work in progress">
+            </div>
+        </div>
+        <div class="box">
+            <div class="box-header">
+                <span>readme.txt</span>
+                <span class="close-button">×</span>
+            </div>
+            <div class="box-content">
+                <p>future: under construction</p>
+            </div>
+        </div>
+        <div class="box">
+            <div class="box-header">
+                <span>side_quests.jpeg</span>
+                <span class="close-button">×</span>
+            </div>
+            <div class="box-content">
+                <img src="/peak_a_week2.jpeg" alt="peak_a_week.jpeg">
+            </div>
+        </div>
+        <div class="box">
+            <div class="box-header">
+                <span>phone_menu.flac</span>
+                <span class="close-button">×</span>
+            </div>
+            <div class="box-content">
+                <p>You've reached Jack. Leave a message and I'll get back to you soon</p>
+                <ul>
+                    <li>Poeisis</li>
+                    <li>Ecdysis</li>
+                    <li>Pronoia</li>
+                </ul>
+            </div>
+        </div>
+        <div class="box">
+            <div class="box-header">
+                <span>Aphorisms That don't make the X</span>
+                <span class="close-button">×</span>
+            </div>
+            <div class="box-content">
+                <ul>
+                    <li>Hell yeah little bro, lets play some golf</li>
+                    <li>There is no truth, only disproof</li>
+                    <li>Empires collapse</li>
+                    <li>solitude is better for weeding out ideas than creating them</li>
+                </ul>
+            </div>
+        </div>
+    </div>
 </body>
+<script>
+    function closeDiv (){
+        document.getElementById('close').style.display = 'none';
+    }
+</script>
 </html>
-
 
