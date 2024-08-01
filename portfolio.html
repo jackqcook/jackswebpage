@@ -52,9 +52,15 @@ h1, h2 {
 
 .project-content {
     flex: 2;
+    display: flex;
+    flex-direction: column;/* Ensures button goes to bottom */
     padding-right: 20px;
+    max-width: 70%; /* Adjusts the width so the button stays aligned with content */
 }
-
+.project-content p {
+    margin: 5px 0; /* Adjusted margin for tighter spacing */
+    line-height: 1.4; /* Adjusted line-height for tighter spacing */
+}
 .project-image {
     flex: 1;
 }
@@ -65,13 +71,15 @@ h1, h2 {
 }
 
 .button {
+    font-family: Arial, Helvetica, sans-serif;
     display: inline-block;
     padding: 10px 20px;
-    margin-top: 10px;
+    margin-top: auto;
     background-color: #000;
     color: #fff;
     text-decoration: none;
     border-radius: 5px;
+    max-width: fit-content; 
 }
 
 hr {
@@ -95,7 +103,7 @@ hr {
             <h2>Moneyball</h2>
             <p><em>We solved baseball using mathematical models and game theory</em><br>2024</p>
             <p>Contributed to the team that solved baseball using mathematical models to help properly position players and determine the optimal strategy </p>
-            <a href="#" class="button">GO TO ></a>
+            <a href="https://github.com/jackqcook/Player-specific-positioning.git" class="button">GO TO ></a>
         </div>
         <div class="project-image">
             <img src="Baseball_heatmap.jpg" alt="Baseball_heatmap">
@@ -109,7 +117,7 @@ hr {
             <h2>Monte Cristo or Monte Carlo</h2>
             <p><em>Monte Carlo Simulation for changes in stock value</em><br>2024</p>
             <p>A mathematical model using the monte carlo simulation to accurately predict future stock prices for apple and other tech stocks.</p>
-            <a href="#" class="button">GO TO ></a>
+            <a href="https://github.com/jackqcook/monte-carlo-simulation.git" class="button">GO TO ></a>
         </div>
         <div class="project-image">
             <img src="/monte_carlo.jpg" alt="monte_carlo">
@@ -118,23 +126,12 @@ hr {
 
     <hr>
 
-    <!-- <section class="project">
-        <div class="project-content">
-            <h2>Agassi</h2>
-            <p><em>A DNN that predicts premier league matches with 87% accuracy. Currently working on models in tennis and basketball.</em><br>2024</p>
-            <p>A mathematical model using the monte carlo simulation to accurately predict future stock prices for apple and other tech stocks.</p>
-            <a href="#" class="button">GO TO ></a>
-        </div>
-        <div class="project-image">
-            <img src="/premierleaguemodel.png" alt="premierleaguemodel">
-        </div>
-    </section> -->
     <section class="project agassi">
         <div class="project-content">
             <h2>Agassi</h2>
             <p><em>A DNN that predicts premier league matches with 87% accuracy. Currently working on models in tennis and basketball.</em><br>2024</p>
             <p>A mathematical model using the monte carlo simulation to accurately predict future stock prices for apple and other tech stocks.</p>
-            <a href="#" class="button">GO TO ></a>
+            <a href="https://github.com/jackqcook/Sports-Prediction-Model.git" class="button">GO TO ></a>
         </div>
         <div class="project-image">
             <img src="premierleaguemodel.png" alt="premierleaguemodel">
@@ -151,7 +148,7 @@ hr {
             <h2>Peak A Week</h2>
             <p><em>Summit the notable mountains from the wasatch mountain range</em><br>2024</p>
             <p>A goal to climb a peak a week from the wasatch front's beautiful mountain range.</p>
-            <a href="#" class="button">GO TO ></a>
+            <a href="/peak_week.html" class="button">GO TO ></a>
         </div>
         <div class="project-image">
             <img src="/snowbird.jpg" alt="mathclub.io website">
@@ -163,7 +160,7 @@ hr {
             <h2>Quentin.J.Cook</h2>
             <p><em>A 90s style webpage celebrating the OG days of the online era</em><br>2024</p>
             <p>I wanted to get myself off of social media and experience the internet like a 90s kid. The best way to do that was to build my own site and put cool things on it.</p>
-            <a href="#" class="button">GO TO ></a>
+            <a href="./index.html" class="button">GO TO ></a>
         </div>
         <div class="project-image">
             <img src="/quentinjcook.png" alt="mathclub.io website">
