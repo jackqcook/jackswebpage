@@ -3,28 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<style>
-    body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 20px;
-        max-width: 1200px;
-    }
-    
-    .header {
-        text-align: left;
-        margin-bottom: 20px;
-    }
-    
-    h1, h2 {
-        margin: 0 0 10px 0;
-    }
-    </style>
-<body>
-        <h1>Quentin.J.Cook</h1>
+    <title>Photo Gallery</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            max-width: 1200px;
+        }
+        
+        .header {
+            text-align: left;
+            margin-bottom: 20px;
+        }
+        
+        h1, h2 {
+            margin: 0 0 10px 0;
+        }
 
+        h5 a.pages {
+            color: #007BFF;
+            text-decoration: none;
+        }
+        
+        h5 a.pages:hover {
+            text-decoration: underline;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 10px;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Quentin.J.Cook</h1>
         <h5><a href="./index.html" class="pages">Back to Homepage</a></h5>
+    </div>
+    <div class="gallery">
+        <img src="photos/deer_valley.jpg" alt="deer_valley">
+        <img src="photos/larry_drumming.jpg" alt="larry_drumming">
+        <img src="photos/pickleball.jpg" alt="pickleball">
+        <img src="photos/rfkjr.jpg" alt="Photo 5">
+        <img src="photos/the_boys.jpg" alt="Photo 6">
+        <img src="photos/street_talk.jpg" alt="Photo 7">
+        <img src="photos/pizza.jpg" alt="Photo 9">
+        <img src="photos/jam.jpg" alt="Photo 8">
+    </div>
 </body>
 </html>
