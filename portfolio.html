@@ -1,231 +1,296 @@
 <!DOCTYPE html>
 <html lang="en">
-    
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
+    <title>Portfolio — Quentin.J.Cook</title>
+    <style>
+        :root {
+            --ink: #000;
+            --paper: #fff;
+            --muted: #9a9a9a;
+            --mono: 'Office Code Pro', Courier, monospace;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--mono);
+            margin: 0;
+            padding: 20px;
+            background: var(--paper);
+            color: var(--ink);
+            line-height: 1.45;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .portfolio-wrap {
+            width: 100%;
+            max-width: none;
+            margin: 0;
+            padding: 0 0 2.5rem;
+        }
+
+        .portfolio-header {
+            margin-bottom: 2.25rem;
+        }
+
+        .portfolio-header h1 {
+            margin: 0 0 10px 0;
+        }
+
+        .portfolio-lede {
+            margin: 0;
+            font-size: 0.95rem;
+            font-weight: 400;
+        }
+
+        .project {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) clamp(220px, 24vw, 320px);
+            gap: 1.35rem 1.5rem;
+            width: 100%;
+            padding: 1.35rem 1.35rem 1.4rem;
+            border: 1px solid var(--ink);
+            background: var(--paper);
+            align-items: stretch;
+        }
+
+        .project + .project {
+            margin-top: 1.65rem;
+        }
+
+        .project-content {
+            flex: 1 1 17rem;
+            display: flex;
+            flex-direction: column;
+            min-width: 0;
+            padding-right: 0;
+        }
+
+        .project-title {
+            font-family: var(--mono);
+            font-size: 1rem;
+            font-weight: 700;
+            margin: 0 0 0.35rem 0;
+            line-height: 1.25;
+        }
+
+        .project-tagline {
+            margin: 0;
+            font-size: 0.9rem;
+            font-weight: 400;
+        }
+
+        .project-year {
+            margin: 0.4rem 0 0.85rem;
+            font-size: 0.72rem;
+            color: var(--muted);
+        }
+
+        .project-desc {
+            margin: 0 0 1rem;
+            font-size: 0.88rem;
+            flex-grow: 1;
+        }
+
+        .project-image {
+            width: 100%;
+            min-height: 12rem;
+            align-self: stretch;
+        }
+
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            min-height: 12rem;
+            object-fit: cover;
+            display: block;
+            border-radius: 0;
+            border: none;
+        }
+
+        .button {
+            font-family: var(--mono);
+            display: inline-block;
+            padding: 0.55rem 1rem;
+            margin-top: auto;
+            background-color: var(--ink);
+            color: var(--paper);
+            text-decoration: none;
+            border-radius: 0;
+            max-width: fit-content;
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            border: 1px solid var(--ink);
+        }
+
+        .button:hover {
+            background: var(--paper);
+            color: var(--ink);
+        }
+
+        .back-footer {
+            margin-top: 2.75rem;
+        }
+
+        .back-footer a {
+            color: var(--ink);
+        }
+
+        .back-footer a:hover {
+            text-decoration: none;
+        }
+
+        @media (max-width: 760px) {
+            body {
+                padding: 14px;
+            }
+
+            .project {
+                grid-template-columns: 1fr;
+            }
+
+            .project-image {
+                order: -1;
+                min-height: 13rem;
+            }
+
+            .project-image img {
+                min-height: 13rem;
+            }
+        }
+    </style>
 </head>
-<style>
-body {
-    font-family: 'Office Code Pro', Courier, monospace;
-    margin: 0;
-    padding: 20px;
-}
-
-.header {
-    text-align: left;
-    margin-bottom: 20px;
-}
-
-h1, h2 {
-    margin: 0 0 10px 0;
-}
-body {
-    font-family: 'Office Code Pro', Courier, monospace;
-    margin: 0;
-    padding: 20px;
-}
-
-.header {
-    text-align: left;
-    margin-bottom: 20px;
-}
-
-h1, h2 {
-    margin: 0 0 10px 0;
-}
-
-.header p {
-    margin: 0;
-    font-style: italic;
-    color: #555;
-}
-
-.project {
-    display: flex;
-    margin-bottom: 20px;
-    padding: 10px;
-    background: #fff;
-    border: 1px solid black;
-}
-
-.project-content {
-    flex: 2;
-    display: flex;
-    flex-direction: column;/* Ensures button goes to bottom */
-    padding-right: 20px;
-    max-width: 70%; /* Adjusts the width so the button stays aligned with content */
-}
-.project-content p {
-    margin: 5px 0; /* Adjusted margin for tighter spacing */
-    line-height: 1.4; /* Adjusted line-height for tighter spacing */
-}
-.project-image {
-    flex: 1;
-}
-
-.project-image img {
-    max-width: 100%;
-    border-radius: 5px;
-}
-
-.button {
-    font-family: 'Office Code Pro', Courier, monospace;
-    display: inline-block;
-    padding: 10px 20px;
-    margin-top: auto;
-    background-color: #000;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 5px;
-    max-width: fit-content; 
-}
-
-hr {
-    border: none;
-    border-top: 1px solid #ddd;
-    margin: 20px 0;
-}
-.agassi .project-image img {
-    width: 100%; /* Ensure the image fills the width of its container */
-    height: 100%;
-    border-radius: 5px;
-}
-
-
-</style>
 <body>
-    
-    <h1>Quentin.J.Cook</h1>
-    <section class="project">
-        <div class="project-content">
-            <h2>Snare</h2>
-            <p><em>Music App</em><br>2025</p>
-            <p>Letterboxd for music!</p>
-            <a href="https://www.snaremusic.app" class="button">DOWNLOAD ></a>
-        </div>
-        <div class="project-image">
-            <img src="snare.PNG" alt="snare">
-        </div>
-    </section>
+    <div class="portfolio-wrap">
+        <header class="portfolio-header">
+            <h1>Quentin.J.Cook</h1>
+            <p class="portfolio-lede">collection of all published projects:</p>
+        </header>
 
-    <hr>
-    <section class="project">
-        <div class="project-content">
-            <h2>Piggybank</h2>
-            <p><em>A crypto trading platform</em><br>2025</p>
-            <p>"Just as genes propagate themselves in the gene pool by leaping from body to body via sperms or eggs, so memes propagate themselves in the meme pool by leaping from brain to brain via a process which, in the broad sense, can be called imitation." Richard Dawkins. Give the site a second to boot up, hosting fees are high. </p>
-            <a href="https://www.piggycrypto.fun" class="button">GO TO ></a>
-        </div>
-        <div class="project-image">
-            <img src="piggy.png" alt="piggy">
-        </div>
-    </section>
+        <section class="project">
+            <div class="project-content">
+                <h2 class="project-title">Snare</h2>
+                <p class="project-tagline">Music App</p>
+                <p class="project-year">2025</p>
+                <p class="project-desc">Letterboxd for music!</p>
+                <a href="https://www.snaremusic.app" class="button">Download &gt;</a>
+            </div>
+            <div class="project-image">
+                <img src="snare.PNG" alt="Snare app">
+            </div>
+        </section>
 
-    <section class="project election_predictor">
-        <div class="project-content">
-            <h2>Heretic Magazine</h2>
-            <p><em>A magazine with my friends</em><br>2025</p>
-            <p>My friends and I wanted to bring back a vice style magazine with our own twist. The goal of this project was to get better at react and also explore some interesting ideas I wanted to wrestle with. Overall, very stoked about how it turned out and the content we are producing. </p>
-            <p></p>
-            <p></p>
-            <br></br>
-            <a href="https://www.hereticmagazine.com" class="button">GO TO ></a>
-        </div>
-        <div class="project-image">
-            <img src="hereticmag.png" alt="heretic_mag">
-        </div>
-    </section>
+        <section class="project">
+            <div class="project-content">
+                <h2 class="project-title">Piggybank</h2>
+                <p class="project-tagline">A crypto trading platform</p>
+                <p class="project-year">2025</p>
+                <p class="project-desc">&ldquo;Just as genes propagate themselves in the gene pool by leaping from body to body via sperms or eggs, so memes propagate themselves in the meme pool by leaping from brain to brain via a process which, in the broad sense, can be called imitation.&rdquo; Richard Dawkins. Give the site a second to boot up, hosting fees are high.</p>
+                <a href="https://www.piggycrypto.fun" class="button">Go to &gt;</a>
+            </div>
+            <div class="project-image">
+                <img src="piggy.png" alt="Piggybank">
+            </div>
+        </section>
 
-    <section class="project election_predictor">
-        <div class="project-content">
-            <h2>Fluid Companion</h2>
-            <p><em>Property calculator app</em><br>2025</p>
-            <p>An engineering friend saw a need to help with calculating properties of properties. So we built it together. Privacy policy is attached here. </p>
-            <p></p>
-            <p></p>
-            <br></br>
-            <a href="fluidpropertyapp.html" class="button">GO TO ></a>
-        </div>
-        <div class="project-image">
-            <img src="FluidProperty.png" alt="FluidProperty">
-        </div>
-    </section>
-    <hr>
-    <section class="project">
-        <div class="project-content">
-            <h2>Electronic Nose</h2>
-            <p><em>olfactory intelligence </em><br>2025</p>
-            <p>Built an electronic nose using various sensors. We were able to detect the presence of various chemicals and gases. We mostly just wanted to get more familiar with hardware.</p>
-            <a href="https://www.kaggle.com/code/jack12cook/fsp-model-final" class="button">GO TO ></a>
-        </div>
-        <div class="project-image">
-            <img src="photos/Enose.JPEG" alt="ENOSE" > 
-        </div>
-    </section>
+        <section class="project">
+            <div class="project-content">
+                <h2 class="project-title">Heretic Magazine</h2>
+                <p class="project-tagline">A magazine with my friends</p>
+                <p class="project-year">2025</p>
+                <p class="project-desc">My friends and I wanted to bring back a vice style magazine with our own twist. The goal of this project was to get better at React and also explore some interesting ideas I wanted to wrestle with. Overall, very stoked about how it turned out and the content we are producing.</p>
+                <a href="https://www.hereticmagazine.com" class="button">Go to &gt;</a>
+            </div>
+            <div class="project-image">
+                <img src="hereticmag.png" alt="Heretic Magazine">
+            </div>
+        </section>
 
-    <hr>
-    <section class="project">
-        <div class="project-content">
-            <h2>Player Specific Positioning</h2>
-            <p><em>A side project for the research lab. I wanted to create a model that was able to see the underlying defensive tendencies of players.</em><br>2024</p>
-            <p>The model uses a DNN architecture to identify where a player has strong fielding tendencies. The goal is to include this to a larger model that uses game theory to optimally position fielders.</p>
-            <a href="https://www.kaggle.com/code/jack12cook/fsp-model-final" class="button">GO TO ></a>
-        </div>
-        <div class="project-image">
-            <img src="photos/Unknown-12.png" alt="Baseball_heatmap">
-        </div>
-    </section>
+        <section class="project">
+            <div class="project-content">
+                <h2 class="project-title">Fluid Companion</h2>
+                <p class="project-tagline">Property calculator app</p>
+                <p class="project-year">2025</p>
+                <p class="project-desc">An engineering friend saw a need to help with calculating properties of properties. So we built it together. Privacy policy is attached here.</p>
+                <a href="fluidpropertyapp.html" class="button">Go to &gt;</a>
+            </div>
+            <div class="project-image">
+                <img src="FluidProperty.png" alt="Fluid Companion">
+            </div>
+        </section>
 
-    <hr>
+        <section class="project">
+            <div class="project-content">
+                <h2 class="project-title">Electronic Nose</h2>
+                <p class="project-tagline">Olfactory intelligence</p>
+                <p class="project-year">2025</p>
+                <p class="project-desc">Built an electronic nose using various sensors. We were able to detect the presence of various chemicals and gases. We mostly just wanted to get more familiar with hardware.</p>
+                <a href="https://www.kaggle.com/code/jack12cook/fsp-model-final" class="button">Go to &gt;</a>
+            </div>
+            <div class="project-image">
+                <img src="photos/Enose.JPEG" alt="Electronic nose hardware">
+            </div>
+        </section>
 
-    <section class="project">
-        <div class="project-content">
-            <h2>Monte Carlo Simulation</h2>
-            <p><em>Monte Carlo Simulation for changes in stock value</em><br>2024</p>
-            <p>A mathematical model using the monte carlo simulation to sample future stock prices for apple's stock. In my math class we discussed monte carlo methods, I was super fascinated by them so I decided to do a project to get a better grasp for what they have to offer.</p>
-            <a href="https://github.com/jackqcook/monte-carlo-simulation.git" class="button">GO TO ></a>
-        </div>
-        <div class="project-image">
-            <img src="/monte_carlo.jpg" alt="monte_carlo">
-        </div>
-    </section>
+        <section class="project">
+            <div class="project-content">
+                <h2 class="project-title">Player Specific Positioning</h2>
+                <p class="project-tagline">A side project for the research lab. I wanted to create a model that was able to see the underlying defensive tendencies of players.</p>
+                <p class="project-year">2024</p>
+                <p class="project-desc">The model uses a DNN architecture to identify where a player has strong fielding tendencies. The goal is to include this in a larger model that uses game theory to optimally position fielders.</p>
+                <a href="https://www.kaggle.com/code/jack12cook/fsp-model-final" class="button">Go to &gt;</a>
+            </div>
+            <div class="project-image">
+                <img src="photos/Unknown-12.png" alt="Baseball heatmap">
+            </div>
+        </section>
 
-    
+        <section class="project">
+            <div class="project-content">
+                <h2 class="project-title">Monte Carlo Simulation</h2>
+                <p class="project-tagline">Monte Carlo simulation for changes in stock value</p>
+                <p class="project-year">2024</p>
+                <p class="project-desc">A mathematical model using the Monte Carlo simulation to sample future stock prices for Apple&rsquo;s stock. In my math class we discussed Monte Carlo methods; I was super fascinated by them so I decided to do a project to get a better grasp for what they have to offer.</p>
+                <a href="https://github.com/jackqcook/monte-carlo-simulation.git" class="button">Go to &gt;</a>
+            </div>
+            <div class="project-image">
+                <img src="/monte_carlo.jpg" alt="Monte Carlo visualization">
+            </div>
+        </section>
 
-    <hr>
+        <section class="project">
+            <div class="project-content">
+                <h2 class="project-title">Peak A Week</h2>
+                <p class="project-tagline">Summit the notable mountains along the Wasatch Mountain Range</p>
+                <p class="project-year">2024</p>
+                <p class="project-desc">A goal to climb a peak a week from the Wasatch Front&rsquo;s beautiful mountain range.</p>
+                <a href="/peak_week.html" class="button">Go to &gt;</a>
+            </div>
+            <div class="project-image">
+                <img src="/snowbird.jpg" alt="Wasatch peak">
+            </div>
+        </section>
 
-    <!-- Add more project sections as needed -->
+        <section class="project">
+            <div class="project-content">
+                <h2 class="project-title">Quentin.J.Cook</h2>
+                <p class="project-tagline">A 90s style webpage celebrating the OG days of the early internet</p>
+                <p class="project-year">2024</p>
+                <p class="project-desc">I wanted to get myself off of social media and experience the internet like a 90s kid. The best way to do that was to build my own site and put cool things on it.</p>
+                <a href="./index.html" class="button">Go to &gt;</a>
+            </div>
+            <div class="project-image">
+                <img src="/quentinjcook.png" alt="Quentin.J.Cook site">
+            </div>
+        </section>
 
-    <section class="project">
-        <div class="project-content">
-            <h2>Peak A Week</h2>
-            <p><em>Summit the notable mountains along the Wasatch Mountain Range</em><br>2024</p>
-            <p>A goal to climb a peak a week from the wasatch front's beautiful mountain range.</p>
-            <a href="/peak_week.html" class="button">GO TO ></a>
-        </div>
-        <div class="project-image">
-            <img src="/snowbird.jpg" alt="mathclub.io website">
-        </div>
-    </section>
-    <hr>
-    <section class="project">
-        <div class="project-content">
-            <h2>Quentin.J.Cook</h2>
-            <p><em>A 90s style webpage celebrating the OG days of the early internet</em><br>2024</p>
-            <p>I wanted to get myself off of social media and experience the internet like a 90s kid. The best way to do that was to build my own site and put cool things on it.</p>
-            <a href="./index.html" class="button">GO TO ></a>
-        </div>
-        <div class="project-image">
-            <img src="/quentinjcook.png" alt="mathclub.io website">
-        </div>
-    </section>
-    
-    
-    <h5><a href="./index.html" class="pages">Back to Homepage</a></h5>
-</body>
-</html>
-
+        <h5 class="back-footer"><a href="./index.html" class="pages">Back to Homepage</a></h5>
+    </div>
 </body>
 </html>
