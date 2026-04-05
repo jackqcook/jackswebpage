@@ -49,10 +49,10 @@
 
         .project {
             display: grid;
-            grid-template-columns: minmax(0, 1fr) clamp(220px, 24vw, 320px);
+            grid-template-columns: minmax(0, 1fr) clamp(170px, 18vw, 240px);
             gap: 1.35rem 1.5rem;
             width: 100%;
-            padding: 1.35rem 1.35rem 1.4rem;
+            padding: 1.1rem 1.1rem 1.15rem;
             border: 1px solid var(--ink);
             background: var(--paper);
             align-items: stretch;
@@ -96,20 +96,45 @@
             flex-grow: 1;
         }
 
-        .project-image {
+        .project-image,
+        .project-video {
             width: 100%;
-            min-height: 12rem;
+            min-height: 8.5rem;
             align-self: stretch;
+            overflow: hidden;
         }
 
-        .project-image img {
+        .project-image img,
+        .project-video video {
             width: 100%;
             height: 100%;
-            min-height: 12rem;
+            min-height: 8.5rem;
             object-fit: cover;
             display: block;
             border-radius: 0;
             border: none;
+        }
+
+        .app-icon {
+            border-radius: 34px !important;
+        }
+
+        .contain-image {
+            object-fit: contain !important;
+            background: var(--paper);
+        }
+
+        .short-image {
+            align-self: start;
+            min-height: 0;
+        }
+
+        .short-image img {
+            width: 100%;
+            height: auto;
+            min-height: 0;
+            max-height: 10rem;
+            object-fit: contain;
         }
 
         .button {
@@ -155,13 +180,15 @@
                 grid-template-columns: 1fr;
             }
 
-            .project-image {
+            .project-image,
+            .project-video {
                 order: -1;
-                min-height: 13rem;
+                min-height: 11rem;
             }
 
-            .project-image img {
-                min-height: 13rem;
+            .project-image img,
+            .project-video video {
+                min-height: 11rem;
             }
         }
     </style>
@@ -170,19 +197,55 @@
     <div class="portfolio-wrap">
         <header class="portfolio-header">
             <h1>Quentin.J.Cook</h1>
-            <p class="portfolio-lede">collection of all published projects:</p>
+            <p class="portfolio-lede">works in progress:</p>
         </header>
 
         <section class="project">
             <div class="project-content">
+                <h2 class="project-title">Atlas and the Holland Society</h2>
+                <p class="project-tagline">Secret societies</p>
+                <p class="project-year">2026</p>
+                <p class="project-desc">It's a secret.</p>
+            </div>
+        </section> 
+
+        <section class="project">
+            <div class="project-content">
+                <h2 class="project-title">Walking through latent space</h2>
+                <p class="project-tagline">Generative art</p>
+                <p class="project-year">2026</p>
+                <p class="project-desc">Trained a image generation model on abstract expressionist art and generated a video walking through the latent space. Will sell some installations here soon. Site will be up in the near future.</p>
+            </div>
+            <div class="project-video">
+                <video autoplay muted loop playsinline>
+                    <source src="supervised_output-2 copy.mp4" type="video/mp4">
+                </video>
+            </div>
+        </section> 
+
+        <section class="project">
+            <div class="project-content">
+                <h2 class="project-title">LQG Quadrotator</h2>
+                <p class="project-tagline">Tracking a quadrotor</p>
+                <p class="project-year">2026</p>
+                <p class="project-desc">Built a nonlinear quadrotor control pipeline for tracking a target drone. </p>
+                <a href="https://github.com/jackqcook/ControlProject/blob/main/README.md" class="button">Github &gt;</a>
+            </div>
+            <div class="project-image">
+                <img src="tracker_target_3d.gif" alt="vol4gif">
+            </div>
+        </section>
+        
+        <section class="project">
+            <div class="project-content">
                 <h2 class="project-title">Snare</h2>
-                <p class="project-tagline">Music App</p>
+                <p class="project-tagline">Review and discover music</p>
                 <p class="project-year">2025</p>
-                <p class="project-desc">Letterboxd for music!</p>
+                <p class="project-desc">I wanted to get more familiar with mobile development so I built a music app. Snare is an app that allows friends to see what their friends are listening to and review their favorite tracks/albums. Go download it in the app store today!</p>
                 <a href="https://www.snaremusic.app" class="button">Download &gt;</a>
             </div>
             <div class="project-image">
-                <img src="snare.PNG" alt="Snare app">
+                <img src="Asset 6.png" alt="Snare app" class="app-icon">
             </div>
         </section>
 
@@ -191,7 +254,8 @@
                 <h2 class="project-title">Piggybank</h2>
                 <p class="project-tagline">A crypto trading platform</p>
                 <p class="project-year">2025</p>
-                <p class="project-desc">&ldquo;Just as genes propagate themselves in the gene pool by leaping from body to body via sperms or eggs, so memes propagate themselves in the meme pool by leaping from brain to brain via a process which, in the broad sense, can be called imitation.&rdquo; Richard Dawkins. Give the site a second to boot up, hosting fees are high.</p>
+                <p class="project-desc">&ldquo;Just as genes propagate themselves in the gene pool by leaping from body to body via sperms or eggs, so memes propagate themselves in the meme pool by leaping from brain to brain via a process which, in the broad sense, can be called imitation.&rdquo; Richard Dawkins. </p>
+                <p class="project-desc">I blackpilled on crypto a little too hard and took the site down. Still super proud of what we built and how it turned out.</p>
                 <a href="https://www.piggycrypto.fun" class="button">Go to &gt;</a>
             </div>
             <div class="project-image">
@@ -204,11 +268,11 @@
                 <h2 class="project-title">Heretic Magazine</h2>
                 <p class="project-tagline">A magazine with my friends</p>
                 <p class="project-year">2025</p>
-                <p class="project-desc">My friends and I wanted to bring back a vice style magazine with our own twist. The goal of this project was to get better at React and also explore some interesting ideas I wanted to wrestle with. Overall, very stoked about how it turned out and the content we are producing.</p>
+                <p class="project-desc">My friends and I wanted to bring back a vice style magazine with our own twist. The goal of this project was to get better at React and also explore some interesting ideas I wanted to wrestle with. </p>
                 <a href="https://www.hereticmagazine.com" class="button">Go to &gt;</a>
             </div>
             <div class="project-image">
-                <img src="hereticmag.png" alt="Heretic Magazine">
+                <img src="hereticmag.png" alt="Heretic Magazine" class="contain-image">
             </div>
         </section>
 
@@ -228,39 +292,12 @@
         <section class="project">
             <div class="project-content">
                 <h2 class="project-title">Electronic Nose</h2>
-                <p class="project-tagline">Olfactory intelligence</p>
+                <p class="project-tagline">hardware is hard</p>
                 <p class="project-year">2025</p>
                 <p class="project-desc">Built an electronic nose using various sensors. We were able to detect the presence of various chemicals and gases. We mostly just wanted to get more familiar with hardware.</p>
-                <a href="https://www.kaggle.com/code/jack12cook/fsp-model-final" class="button">Go to &gt;</a>
             </div>
-            <div class="project-image">
+            <div class="project-image short-image">
                 <img src="photos/Enose.JPEG" alt="Electronic nose hardware">
-            </div>
-        </section>
-
-        <section class="project">
-            <div class="project-content">
-                <h2 class="project-title">Player Specific Positioning</h2>
-                <p class="project-tagline">A side project for the research lab. I wanted to create a model that was able to see the underlying defensive tendencies of players.</p>
-                <p class="project-year">2024</p>
-                <p class="project-desc">The model uses a DNN architecture to identify where a player has strong fielding tendencies. The goal is to include this in a larger model that uses game theory to optimally position fielders.</p>
-                <a href="https://www.kaggle.com/code/jack12cook/fsp-model-final" class="button">Go to &gt;</a>
-            </div>
-            <div class="project-image">
-                <img src="photos/Unknown-12.png" alt="Baseball heatmap">
-            </div>
-        </section>
-
-        <section class="project">
-            <div class="project-content">
-                <h2 class="project-title">Monte Carlo Simulation</h2>
-                <p class="project-tagline">Monte Carlo simulation for changes in stock value</p>
-                <p class="project-year">2024</p>
-                <p class="project-desc">A mathematical model using the Monte Carlo simulation to sample future stock prices for Apple&rsquo;s stock. In my math class we discussed Monte Carlo methods; I was super fascinated by them so I decided to do a project to get a better grasp for what they have to offer.</p>
-                <a href="https://github.com/jackqcook/monte-carlo-simulation.git" class="button">Go to &gt;</a>
-            </div>
-            <div class="project-image">
-                <img src="/monte_carlo.jpg" alt="Monte Carlo visualization">
             </div>
         </section>
 
@@ -272,21 +309,15 @@
                 <p class="project-desc">A goal to climb a peak a week from the Wasatch Front&rsquo;s beautiful mountain range.</p>
                 <a href="/peak_week.html" class="button">Go to &gt;</a>
             </div>
-            <div class="project-image">
-                <img src="/snowbird.jpg" alt="Wasatch peak">
-            </div>
         </section>
 
         <section class="project">
             <div class="project-content">
                 <h2 class="project-title">Quentin.J.Cook</h2>
-                <p class="project-tagline">A 90s style webpage celebrating the OG days of the early internet</p>
+                <p class="project-tagline">This website</p>
                 <p class="project-year">2024</p>
-                <p class="project-desc">I wanted to get myself off of social media and experience the internet like a 90s kid. The best way to do that was to build my own site and put cool things on it.</p>
+                <p class="project-desc">The most important project I've ever built. This site was the catalyst for me to go and build. I was inspired and shamelessly copied the design of this site from some random guy on X. But it's the first thing in software I ever built and I'm proud of it.</p>
                 <a href="./index.html" class="button">Go to &gt;</a>
-            </div>
-            <div class="project-image">
-                <img src="/quentinjcook.png" alt="Quentin.J.Cook site">
             </div>
         </section>
 
