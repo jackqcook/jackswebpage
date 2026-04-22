@@ -1,0 +1,420 @@
+:root {
+  --bg: #ffffff;
+  --text: #111111;
+  --muted: #6f6f6f;
+  --line: #e8e8e8;
+  --font-body: "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-display: "Allura", "Brush Script MT", cursive;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.45;
+}
+
+.topbar {
+  position: sticky;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.2rem 4vw;
+  background: rgba(255, 255, 255, 0.92);
+  border-bottom: 1px solid var(--line);
+  backdrop-filter: blur(5px);
+}
+
+.brand {
+  text-decoration: none;
+  color: var(--text);
+  font-size: 0.86rem;
+  letter-spacing: 0.18em;
+}
+
+nav {
+  display: flex;
+  gap: 1.2rem;
+}
+
+nav a {
+  color: var(--text);
+  text-decoration: none;
+  font-size: 0.86rem;
+}
+
+.home-landing {
+  width: 100%;
+  min-height: calc(100vh - 72px);
+  margin: 0;
+  display: grid;
+  place-items: center;
+}
+
+.home-showcase {
+  display: grid;
+  justify-items: center;
+  gap: 1.6rem;
+  text-align: center;
+  transform: translateY(-6vh);
+}
+
+.home-name {
+  margin: 0;
+  color: var(--text);
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 6.8vw, 5.8rem);
+  letter-spacing: 0.01em;
+  line-height: 1.05;
+  font-weight: 600;
+}
+
+.home-links {
+  display: grid;
+  gap: 0.6rem;
+  justify-items: center;
+  opacity: 1;
+}
+
+.home-links a {
+  color: var(--text);
+  text-decoration: none;
+  font-size: clamp(1.2rem, 2.9vw, 1.95rem);
+  letter-spacing: 0.04em;
+}
+
+.home-links a:hover {
+  opacity: 0.62;
+}
+
+main {
+  width: min(1160px, 92vw);
+  margin: 0 auto;
+}
+
+.hero {
+  padding: 5.5rem 0 4rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.eyebrow {
+  margin: 0 0 1rem;
+  font-size: 0.74rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+h1 {
+  margin: 0;
+  max-width: 760px;
+  font-weight: 600;
+  line-height: 1.12;
+  font-size: clamp(2rem, 5vw, 4rem);
+}
+
+.hero-copy {
+  margin-top: 1.5rem;
+  max-width: 650px;
+  color: var(--muted);
+}
+
+.section {
+  padding: 1.8rem 0 1.8rem;
+}
+
+.section-heading h2 {
+  margin: 0 0 1rem;
+  font-size: 1rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.section-heading p {
+  margin: 0.5rem 0 0;
+  color: var(--muted);
+}
+
+.breadcrumb {
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: 0.7rem 0.5rem;
+  font-size: 0.82rem;
+}
+
+.breadcrumb span {
+  margin: 0 0.45rem;
+  color: var(--muted);
+}
+
+.sculptures-list {
+  display: grid;
+  gap: 0;
+}
+
+.sculpture-item {
+  display: grid;
+  grid-template-columns: 1fr;
+  border-bottom: 1px solid var(--line);
+}
+
+.sculpture-media {
+  border-right: none;
+  padding: 1.4rem;
+  background: #fff;
+}
+
+.sculpture-media video {
+  width: min(82%, 520px);
+  margin: 0 auto;
+  pointer-events: none;
+}
+
+.sculpture-meta {
+  padding: 2rem 1.2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.4rem;
+  text-align: center;
+  align-items: center;
+}
+
+.sculpture-meta h3 {
+  margin: 0 0 0.7rem;
+  font-size: 1.05rem;
+  font-weight: 500;
+}
+
+.sculpture-meta p {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.sculpture-meta .price {
+  margin-top: 0.65rem;
+  margin-bottom: 0.95rem;
+  color: var(--text);
+  font-size: 1.24rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+.card {
+  border: 1px solid var(--line);
+  background: #fff;
+}
+
+video {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  background: #f8f8f8;
+}
+
+.card-meta {
+  padding: 1rem;
+}
+
+.card-meta h3 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.price {
+  margin: 0.55rem 0 0.8rem;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.btn {
+  appearance: none;
+  border: 1px solid var(--text);
+  background: transparent;
+  color: var(--text);
+  padding: 0.62rem 0.95rem;
+  font: inherit;
+  font-size: 0.84rem;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.btn:hover {
+  background: var(--text);
+  color: #fff;
+}
+
+.btn:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+.btn:disabled:hover {
+  background: transparent;
+  color: var(--text);
+}
+
+.buy-with-stamp {
+  position: relative;
+  display: inline-grid;
+  place-items: center;
+}
+
+.sold-stamp {
+  position: absolute;
+  border: 2px solid #d02525;
+  color: #d02525;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 0.2rem 0.42rem;
+  transform: rotate(-12deg);
+  pointer-events: none;
+  background: rgba(255, 255, 255, 0.82);
+}
+
+.nft-section {
+  border-top: 1px solid var(--line);
+}
+
+.nft-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr;
+}
+
+.nft-card {
+  border: 1px solid var(--line);
+  background: #fff;
+}
+
+footer {
+  width: min(1160px, 92vw);
+  margin: 3rem auto 4rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid var(--line);
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  color: var(--muted);
+}
+
+footer a {
+  color: var(--text);
+}
+
+.about-main {
+  width: min(1320px, 97vw);
+  margin: 2.2rem auto 4rem;
+}
+
+.about-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  border-bottom: 1px solid var(--line);
+}
+
+.about-image-wrap {
+  padding: 1.3rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.about-image {
+  display: block;
+  width: 100%;
+  max-width: none;
+  height: auto;
+  margin: 0 auto;
+}
+
+.about-content {
+  padding: 1.8rem 1.3rem;
+  font-size: 0.92rem;
+  line-height: 1.4;
+}
+
+.about-content h1 {
+  margin: 0 0 1rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.about-content h2 {
+  margin: 1.4rem 0 0.7rem;
+  font-size: 0.9rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.about-content p {
+  margin: 0 0 0.95rem;
+  color: var(--text);
+  font-size: 0.80rem;
+}
+
+.about-content ul {
+  margin: 0 0 0.95rem 1.2rem;
+  padding: 0;
+}
+
+@media (max-width: 640px) {
+  .topbar {
+    gap: 0.9rem;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  nav {
+    flex-wrap: wrap;
+  }
+
+  .home-name {
+    font-size: clamp(1.7rem, 12vw, 2.9rem);
+  }
+}
+
+@media (min-width: 980px) {
+  .sculpture-item {
+    grid-template-columns: minmax(0, 1fr) minmax(320px, 42%);
+  }
+
+  .sculpture-media {
+    border-right: 1px solid var(--line);
+    padding: 3.2rem;
+  }
+
+  .sculpture-media video {
+    width: min(72%, 500px);
+  }
+
+  .sculpture-meta {
+    padding: 3rem 2.2rem;
+  }
+
+  .nft-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .about-layout {
+    grid-template-columns: minmax(0, 1fr) minmax(300px, 36%);
+  }
+
+  .about-image-wrap {
+    border-bottom: none;
+    border-right: 1px solid var(--line);
+    padding: 1.6rem 1.4rem 1.6rem 0;
+  }
+
+  .about-content {
+    padding: 2.7rem 2.2rem;
+  }
+}

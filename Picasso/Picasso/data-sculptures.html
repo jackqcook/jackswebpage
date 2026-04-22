@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QJC | Data Sculptures</title>
+    <meta
+      name="description"
+      content="A minimal storefront for data sculptures and NFT releases."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="./index.html">QJC</a>
+      <nav>
+        <a href="./data-sculptures.html">Data Sculptures</a>
+        <a href="./nfts.html">NFTs</a>
+        <a href="./about.html">About</a>
+        <a href="./contact.html">Contact</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section id="data-sculptures" class="section">
+        <div class="sculptures-list">
+          <article class="sculpture-item">
+            <div class="sculpture-media">
+              <video autoplay muted loop playsinline preload="metadata" disablepictureinpicture src="./clips/clip-03.mp4"></video>
+            </div>
+            <div class="sculpture-meta">
+              <h3>ENIAC, 2026</h3>
+              <p class="price">$100,000.00</p>
+              <button class="btn" data-work="STATIC MEMORY, 2026">Buy</button>
+            </div>
+          </article>
+
+          <article class="sculpture-item">
+            <div class="sculpture-media">
+              <video autoplay muted loop playsinline preload="metadata" disablepictureinpicture src="./clips/clip-02.mp4"></video>
+            </div>
+            <div class="sculpture-meta">
+              <h3>CSIRAC, 2026</h3>
+              <p class="price">$50,000.00</p>
+              <button class="btn" data-work="STREET BLOOM, 2026">Buy</button>
+            </div>
+          </article>
+
+          <article class="sculpture-item">
+            <div class="sculpture-media">
+              <video autoplay muted loop playsinline preload="metadata" disablepictureinpicture src="./clips/clip-01.mp4"></video>
+            </div>
+            <div class="sculpture-meta">
+              <h3>GAN 001, 2025</h3>
+              <p class="price">$25,000.00</p>
+              <div class="buy-with-stamp">
+                <button class="btn" data-work="WHITE DRIFT, 2026" disabled aria-label="Sold item">Buy</button>
+                <span class="sold-stamp" aria-hidden="true">Sold</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="sculpture-item">
+            <div class="sculpture-media">
+              <video autoplay muted loop playsinline preload="metadata" disablepictureinpicture src="./clips/clip-04.mp4"></video>
+            </div>
+            <div class="sculpture-meta">
+              <h3>CCRU, 2026</h3>
+              <p class="price">$10,000.00</p>
+              <button class="btn" data-work="CITY HAZE, 2026">Buy</button>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer id="contact">
+      <p>For acquisitions and private sales</p>
+      <a href="mailto:quentinjacksoncook@gmail.com">quentinjacksoncook@gmail.com</a>
+    </footer>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
