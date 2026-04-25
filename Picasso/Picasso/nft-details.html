@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QJC | NFT Details</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+    <style>
+      .nft-details-main {
+        width: min(900px, 92vw);
+        margin: 1.4rem auto 3rem;
+      }
+
+      .nft-details-card {
+        background: #fff;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
+      }
+
+      .nft-details-image {
+        width: 100%;
+        aspect-ratio: 1 / 1;
+        object-fit: cover;
+        display: block;
+      }
+
+      .nft-details-head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0.8rem;
+      }
+
+      .nft-details-content {
+        padding: 0.2rem 0 0.4rem;
+      }
+
+      .nft-details-content h1 {
+        margin: 0.2rem 0 0.8rem;
+        font-size: clamp(1.2rem, 3.3vw, 2rem);
+      }
+
+      .nft-specs {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.45rem;
+        margin-bottom: 1rem;
+      }
+
+      .nft-spec {
+        font-size: 0.84rem;
+        color: var(--muted);
+        background: #f7f7f7;
+        padding: 0.32rem 0.55rem;
+        border-radius: 999px;
+      }
+
+      .buy-row {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-bottom: 0.7rem;
+      }
+
+      .buy-note {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.84rem;
+      }
+
+      .nft-back-link {
+        display: inline-block;
+        margin-top: 1rem;
+      }
+
+      @media (min-width: 860px) {
+        .nft-details-card {
+          grid-template-columns: minmax(320px, 44%) minmax(0, 1fr);
+          gap: 1.5rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="./index.html">QJC</a>
+      <nav>
+        <a href="./data-sculptures.html">Data Sculptures</a>
+        <a href="./about.html">About</a>
+        <a href="./contact.html">Contact</a>
+      </nav>
+    </header>
+
+    <main class="nft-details-main">
+      <section class="nft-details-card">
+        <img class="nft-details-image" id="nftImage" src="" alt="" />
+        <div class="nft-details-content">
+          <div class="nft-details-head">
+            <p class="eyebrow">Wojak Collection</p>
+          </div>
+          <h1 id="nftTitle">NFT Details</h1>
+          <div class="nft-specs">
+            <span class="nft-spec">Token <strong id="specTokenId">-</strong></span>
+            <span class="nft-spec">File <strong id="specFileName">-</strong></span>
+            <span class="nft-spec">Price <strong>$10</strong></span>
+            <span class="nft-spec">Format <strong>PNG</strong></span>
+          </div>
+          <div class="buy-row">
+            <a class="btn" id="buyOnOpenSeaLink" href="#" target="_blank" rel="noopener noreferrer">
+              Buy on OpenSea
+            </a>
+          </div>
+          <p class="buy-note">
+            Checkout and transfer are handled by OpenSea.
+          </p>
+          <a class="nft-back-link" href="./wojak-collection.html"
+            >Back to all NFTs</a
+          >
+        </div>
+      </section>
+    </main>
+
+    <script>
+      const totalNfts = 117;
+      const openseaCollectionUrl = "https://opensea.io/collection/your-collection-slug";
+      const openseaChain = "ethereum";
+      const openseaContractAddress = "";
+
+      const params = new URLSearchParams(window.location.search);
+      const idParam = Number.parseInt(params.get("id"), 10);
+      const nftId =
+        Number.isInteger(idParam) && idParam >= 1 && idParam <= totalNfts
+          ? idParam
+          : 1;
+
+      const nftTitleEl = document.getElementById("nftTitle");
+      const nftImageEl = document.getElementById("nftImage");
+      const specTokenIdEl = document.getElementById("specTokenId");
+      const specFileNameEl = document.getElementById("specFileName");
+      const buyOnOpenSeaLinkEl = document.getElementById("buyOnOpenSeaLink");
+
+      const fileName = `NFT${nftId}.png`;
+      const imagePath = `/gallery/assets/wojak-nfts/${fileName}`;
+
+      function buildOpenSeaUrl(tokenId) {
+        const isValidContract = /^0x[a-fA-F0-9]{40}$/.test(openseaContractAddress);
+        if (isValidContract) {
+          return `https://opensea.io/assets/${openseaChain}/${openseaContractAddress}/${tokenId}`;
+        }
+        return openseaCollectionUrl;
+      }
+
+      nftTitleEl.textContent = `Wojak NFT #${nftId}`;
+      nftImageEl.src = imagePath;
+      nftImageEl.alt = `Wojak NFT ${nftId}`;
+      specTokenIdEl.textContent = String(nftId);
+      specFileNameEl.textContent = fileName;
+      buyOnOpenSeaLinkEl.href = buildOpenSeaUrl(nftId);
+    </script>
+  </body>
+</html>

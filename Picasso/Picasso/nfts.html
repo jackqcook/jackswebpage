@@ -12,16 +12,46 @@
     />
     <link rel="stylesheet" href="./styles.css" />
     <style>
-      .nfts-page {
-        min-height: calc(100vh - 72px);
-        display: grid;
-        place-items: center;
+      .card-only-main {
+        width: min(1160px, 92vw);
+        margin: 1.5rem auto 3rem;
       }
 
-      .nfts-coming-soon {
-        font-size: 1rem;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
+      .single-nft-card-wrap {
+        max-width: 320px;
+        margin: 0;
+      }
+
+      .single-nft-card-wrap .nft-collection-link {
+        display: block;
+        transition: transform 180ms ease;
+      }
+
+      .single-nft-card-wrap .nft-collection-photo {
+        width: 100%;
+        height: auto;
+        min-height: 0;
+        border: none;
+        transition: transform 220ms ease;
+      }
+
+      .single-nft-card-wrap .nft-collection-meta {
+        text-align: center;
+      }
+
+      .single-nft-card-wrap:hover .nft-collection-link,
+      .single-nft-card-wrap:focus-within .nft-collection-link {
+        transform: translateY(-4px);
+      }
+
+      .single-nft-card-wrap:hover .nft-collection-photo,
+      .single-nft-card-wrap:focus-within .nft-collection-photo {
+        transform: scale(1.03);
+      }
+
+      .single-nft-card-wrap .nft-collection-link:focus-visible {
+        outline: 2px solid var(--text);
+        outline-offset: 2px;
       }
     </style>
   </head>
@@ -30,14 +60,26 @@
       <a class="brand" href="./index.html">QJC</a>
       <nav>
         <a href="./data-sculptures.html">Data Sculptures</a>
-        <a href="./nfts.html">NFTs</a>
         <a href="./about.html">About</a>
         <a href="./contact.html">Contact</a>
       </nav>
     </header>
 
-    <main class="nfts-page">
-      <p class="nfts-coming-soon">Coming Soon</p>
+    <main class="card-only-main">
+      <section class="section">
+        <article class="single-nft-card-wrap">
+          <a class="nft-collection-link" href="./wojak-collection.html">
+            <img
+              class="nft-collection-photo"
+              src="/wojak.png"
+              alt="Wojak collection"
+            />
+            <div class="nft-collection-meta">
+              <h2>Wojak Collection</h2>
+            </div>
+          </a>
+        </article>
+      </section>
     </main>
   </body>
 </html>

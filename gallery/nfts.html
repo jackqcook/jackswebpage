@@ -13,15 +13,64 @@
     <link rel="stylesheet" href="/Picasso/Picasso/styles.css" />
     <style>
       .nfts-page {
-        min-height: calc(100vh - 72px);
-        display: grid;
-        place-items: center;
+        width: min(1160px, 92vw);
+        margin: 0 auto 3rem;
       }
 
-      .nfts-coming-soon {
-        font-size: 1rem;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
+      .wojak-header {
+        border-bottom: 1px solid var(--line);
+      }
+
+      .wojak-hero {
+        margin-top: 1rem;
+        border: 1px solid var(--line);
+        background: #fff;
+        overflow: hidden;
+      }
+
+      .wojak-hero img {
+        display: block;
+        width: 100%;
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      .collection-meta {
+        margin-top: 1rem;
+        color: var(--muted);
+        font-size: 0.92rem;
+      }
+
+      .nft-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1rem;
+      }
+
+      .nft-card {
+        border: 1px solid var(--line);
+        background: #fff;
+        overflow: hidden;
+      }
+
+      .nft-card img {
+        width: 100%;
+        display: block;
+        aspect-ratio: 1 / 1;
+        object-fit: cover;
+      }
+
+      .nft-card h2 {
+        margin: 0;
+        padding: 0.72rem 0.8rem;
+        font-size: 0.9rem;
+        font-weight: 500;
+      }
+
+      @media (min-width: 760px) {
+        .nft-grid {
+          grid-template-columns: repeat(4, minmax(0, 1fr));
+        }
       }
     </style>
   </head>
@@ -30,14 +79,52 @@
       <a class="brand" href="/gallery/">QJC</a>
       <nav>
         <a href="/gallery/data-sculptures.html">Data Sculptures</a>
-        <a href="/gallery/nfts.html">NFTs</a>
+        <a href="/Picasso/Picasso/nfts.html">NFTs</a>
         <a href="/gallery/about.html">About</a>
         <a href="/gallery/contact.html">Contact</a>
       </nav>
     </header>
 
     <main class="nfts-page">
-      <p class="nfts-coming-soon">Coming Soon</p>
+      <section class="section wojak-header">
+        <p class="eyebrow">Wojak Collection</p>
+        <h1>Wojak NFTs</h1>
+        <div class="wojak-hero">
+          <img src="/wojak.png" alt="Wojak collection preview" />
+        </div>
+        <p class="collection-meta" id="collectionMeta"></p>
+      </section>
+
+      <section class="section">
+        <div class="nft-grid" id="nftGrid"></div>
+      </section>
     </main>
+
+    <script>
+      const nftItems = Array.from({ length: 117 }, (_, index) => ({
+        tokenId: index + 1,
+        name: `NFT${index + 1}`,
+        image: `/gallery/assets/wojak-nfts/NFT${index + 1}.png`,
+      }));
+
+      const nftGridEl = document.getElementById("nftGrid");
+      const collectionMetaEl = document.getElementById("collectionMeta");
+
+      function renderGrid() {
+        nftGridEl.innerHTML = nftItems
+          .map(
+            (item) => `
+              <article class="nft-card">
+                <img src="${item.image}" alt="Wojak ${item.name}" loading="lazy" />
+                <h2>${item.name}</h2>
+              </article>
+            `
+          )
+          .join("");
+      }
+
+      collectionMetaEl.textContent = `${nftItems.length} NFTs displayed from the Wojak collection.`;
+      renderGrid();
+    </script>
   </body>
 </html>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QJC | Wojak Collection</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+    <style>
+      .wojak-list-main {
+        width: min(1160px, 92vw);
+      }
+
+      .wojak-label-section {
+        padding-bottom: 0.35rem;
+      }
+
+      .wojak-grid-section {
+        padding-top: 0.35rem;
+      }
+
+      .wojak-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1rem;
+      }
+
+      .wojak-item {
+        border: 1px solid var(--line);
+        background: #fff;
+      }
+
+      .wojak-item-link {
+        display: block;
+        color: inherit;
+        text-decoration: none;
+        transition: transform 160ms ease, box-shadow 160ms ease;
+      }
+
+      .wojak-item-link:hover,
+      .wojak-item-link:focus-visible {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      .wojak-item img {
+        width: 100%;
+        aspect-ratio: 1 / 1;
+        object-fit: cover;
+        display: block;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .wojak-item-meta {
+        padding: 0.75rem 0.85rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0.7rem;
+      }
+
+      .wojak-item-meta h2 {
+        margin: 0;
+        font-size: 0.9rem;
+        font-weight: 500;
+      }
+
+      .wojak-item-meta strong {
+        font-size: 0.9rem;
+      }
+
+      @media (min-width: 760px) {
+        .wojak-grid {
+          grid-template-columns: repeat(4, minmax(0, 1fr));
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="./index.html">QJC</a>
+      <nav>
+        <a href="./data-sculptures.html">Data Sculptures</a>
+        <a href="./about.html">About</a>
+        <a href="./contact.html">Contact</a>
+      </nav>
+    </header>
+
+    <main class="wojak-list-main">
+      <section class="section wojak-label-section">
+        <p class="eyebrow">Wojak Collection</p>
+      </section>
+
+      <section class="section wojak-grid-section">
+        <div class="wojak-grid" id="wojakGrid"></div>
+      </section>
+    </main>
+
+    <script>
+      const totalNfts = 117;
+      const pricePerNft = "$10";
+      const openseaCollectionUrl = "https://opensea.io/collection/your-collection-slug";
+      const openseaChain = "ethereum";
+      const openseaContractAddress = "";
+      const gridEl = document.getElementById("wojakGrid");
+
+      function buildOpenSeaUrl(tokenId) {
+        const isValidContract = /^0x[a-fA-F0-9]{40}$/.test(openseaContractAddress);
+        if (isValidContract) {
+          return `https://opensea.io/assets/${openseaChain}/${openseaContractAddress}/${tokenId}`;
+        }
+        return openseaCollectionUrl;
+      }
+
+      gridEl.innerHTML = Array.from({ length: totalNfts }, (_, index) => {
+        const tokenId = index + 1;
+        const imagePath = `/gallery/assets/wojak-nfts/NFT${tokenId}.png`;
+        const openseaUrl = buildOpenSeaUrl(tokenId);
+        return `
+          <article class="wojak-item">
+            <a
+              class="wojak-item-link"
+              href="${openseaUrl}"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img src="${imagePath}" alt="Wojak NFT ${tokenId}" loading="lazy" />
+              <div class="wojak-item-meta">
+                <h2>NFT${tokenId}.png</h2>
+                <strong>${pricePerNft}</strong>
+              </div>
+            </a>
+          </article>
+        `;
+      }).join("");
+    </script>
+  </body>
+</html>
