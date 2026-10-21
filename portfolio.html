@@ -115,8 +115,21 @@
             border: none;
         }
 
-        .app-icon {
-            border-radius: 34px !important;
+        .brand-image {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.5rem;
+            min-height: 0;
+        }
+
+        .brand-image img {
+            width: min(100%, 120px);
+            height: auto;
+            aspect-ratio: 1;
+            min-height: 0;
+            object-fit: contain;
+            border-radius: 0;
         }
 
         .contain-image {
@@ -189,6 +202,17 @@
             .project-image img,
             .project-video video {
                 min-height: 11rem;
+            }
+
+            .brand-image {
+                min-height: 0;
+                justify-content: flex-start;
+                padding: 0;
+            }
+
+            .brand-image img {
+                width: 110px;
+                min-height: 0;
             }
         }
     </style>
@@ -283,7 +307,7 @@
                 <p class="project-desc">I wanted to get more familiar with mobile development. Snare is an app that lets friends see what their friends are listening to and review their favorite tracks/albums. Go download it in the app store.</p>
                 <a href="https://www.snaremusic.app" class="button">Download &gt;</a>
             </div>
-            <div class="project-image">
+            <div class="project-image brand-image">
                 <img src="Asset 6.png" alt="Snare app" class="app-icon">
             </div>
         </section>
@@ -297,8 +321,8 @@
                 <p class="project-desc">I blackpilled on crypto a little too hard and took the site down. Still super proud of what we built and how it turned out.</p>
                 <a href="https://www.piggycrypto.fun" class="button">Go to &gt;</a>
             </div>
-            <div class="project-image">
-                <img src="piggy.png" alt="Piggybank">
+            <div class="project-image brand-image">
+                <img src="piggy-transparent.png" alt="Piggybank">
             </div>
         </section>
 
@@ -311,7 +335,7 @@
                 <a href="https://www.hereticmagazine.com" class="button">Go to &gt;</a>
             </div>
             <div class="project-image">
-                <img src="hereticmag.png" alt="Heretic Magazine" class="contain-image">
+                <img src="heretic_wordmark.png" alt="Heretic Magazine wordmark" class="contain-image">
             </div>
         </section>
 
